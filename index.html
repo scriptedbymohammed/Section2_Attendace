@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Section 2 Attendance</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <span class="eyebrow">ATTENDANCE SYSTEM</span>
+      <h1>Section 2</h1>
+    </div>
+    <div class="date" id="today"></div>
+  </header>
+
+  <main class="container">
+    <section class="card setup-card">
+      <div>
+        <h2>Lecture Information</h2>
+        <p class="muted">Instructor name is optional. If it is left empty, it will not appear in the PDF report.</p>
+      </div>
+      <label>
+        Instructor Name
+        <input id="instructorName" type="text" placeholder="Optional">
+      </label>
+    </section>
+
+    <section class="stats">
+      <div class="stat-card">
+        <span>Total Students</span>
+        <strong id="totalCount">0</strong>
+      </div>
+      <div class="stat-card present">
+        <span>Present</span>
+        <strong id="presentCount">0</strong>
+      </div>
+      <div class="stat-card absent">
+        <span>Absent</span>
+        <strong id="absentCount">0</strong>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-heading">
+        <div>
+          <h2>Students</h2>
+          <p class="muted">Check the students who are present.</p>
+        </div>
+        <input id="searchInput" class="search" type="search" placeholder="Search by name or ID...">
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Student Name</th>
+              <th>Student ID</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="studentsTable"></tbody>
+        </table>
+      </div>
+
+      <div class="actions">
+        <button class="btn secondary" id="clearBtn">Clear Attendance</button>
+        <button class="btn primary" id="pdfBtn">Download PDF Report</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>Section 2 Attendance • Frontend Prototype</footer>
+
+  <script src="students.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
