@@ -473,19 +473,7 @@ td:nth-child(2) {
   color: var(--muted);
 }
 
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-  text-align: center;
-
-  color: var(--muted);
-
-  font-size: 12px;
-
-  padding: 0 20px 25px;
-}
+/* ========================= Footer ========================= */ .site-footer { margin-top: 40px; padding: 22px 20px; text-align: center; border-top: 1px solid #e5e7eb; background: #ffffff; } .footer-content { display: flex; align-items: center; justify-content: center; gap: 10px; color: #6b7280; font-size: 14px; } .footer-content strong { color: #111827; font-weight: 700; } .gmail-link { width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; color: #6b7280; transition: all 0.2s ease; } .gmail-link svg { width: 21px; height: 21px; fill: currentColor; } .gmail-link:hover { color: #ea4335; background: #fef2f2; transform: translateY(-2px); } @media (max-width: 600px) { .footer-content { flex-wrap: wrap; font-size: 13px; } }
 
 /* =========================
    MOBILE
