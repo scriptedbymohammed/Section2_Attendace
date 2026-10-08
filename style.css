@@ -476,217 +476,372 @@ td:nth-child(2) {
 /* ========================= Footer ========================= */ .site-footer { margin-top: 40px; padding: 22px 20px; text-align: center; border-top: 1px solid #e5e7eb; background: #ffffff; } .footer-content { display: flex; align-items: center; justify-content: center; gap: 10px; color: #6b7280; font-size: 14px; } .footer-content strong { color: #111827; font-weight: 700; } .gmail-link { width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; color: #6b7280; transition: all 0.2s ease; } .gmail-link svg { width: 21px; height: 21px; fill: currentColor; } .gmail-link:hover { color: #ea4335; background: #fef2f2; transform: translateY(-2px); } @media (max-width: 600px) { .footer-content { flex-wrap: wrap; font-size: 13px; } }
 
 /* =========================
-   MOBILE
+   RESPONSIVE / MOBILE
 ========================= */
 
 @media (max-width: 700px) {
 
   body {
     font-size: 14px;
+    overflow-x: hidden;
   }
 
+  /* =========================
+     TOP BAR
+  ========================= */
+
   .topbar {
-    padding: 18px 15px;
+    padding: 18px 16px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 6px;
+    gap: 5px;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
   }
 
   h1 {
     font-size: 25px;
+    line-height: 1.2;
   }
 
   .date {
-    font-size: 13px;
+    font-size: 12px;
   }
+
+  /* =========================
+     MAIN CONTAINER
+  ========================= */
 
   .container {
     width: calc(100% - 20px);
-    margin: 18px auto 35px;
+    max-width: 100%;
+    margin: 16px auto 30px;
   }
+
+  /* =========================
+     CARDS
+  ========================= */
 
   .card {
     padding: 16px;
     border-radius: 14px;
   }
 
-  /* Instructor section */
+  /* =========================
+     LECTURE INFORMATION
+  ========================= */
 
   .setup-card {
+    display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 18px;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+
+  .setup-card h2 {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  .muted {
+    font-size: 12px;
+    line-height: 1.55;
   }
 
   label {
     width: 100%;
+    font-size: 12px;
   }
 
-  /* Statistics */
+  input {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  /* =========================
+     STATISTICS
+  ========================= */
 
   .stats {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
+    margin-bottom: 14px;
   }
 
   .stat-card {
-    padding: 14px 10px;
+    min-width: 0;
+    padding: 14px 7px;
     text-align: center;
     border-radius: 12px;
   }
 
   .stat-card span {
-    font-size: 11px;
+    font-size: 10px;
+    line-height: 1.2;
+    margin-bottom: 6px;
+    white-space: nowrap;
   }
 
   .stat-card strong {
-    font-size: 24px;
+    font-size: 23px;
   }
 
-  /* Students section */
+  /* =========================
+     STUDENTS HEADER
+  ========================= */
 
   .section-heading {
+    display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 14px;
+    gap: 13px;
+    margin-bottom: 16px;
+  }
+
+  .section-heading h2 {
+    font-size: 18px;
   }
 
   .search {
     width: 100%;
+    min-width: 0;
     margin: 0;
+    padding: 12px;
   }
 
-  /*
-    Instead of forcing the whole table
-    to scroll horizontally, turn each
-    student row into a card.
-  */
+  /* =========================
+     STUDENT CARDS
+  ========================= */
 
   .table-wrap {
+    width: 100%;
     border: none;
     overflow: visible;
   }
 
-  table,
-  tbody {
-    display: block;
+  table {
     width: 100%;
+    min-width: 0;
+    border: none;
   }
 
   thead {
     display: none;
   }
 
-  tr {
+  tbody {
+    display: block;
+    width: 100%;
+  }
+
+  tbody tr {
+    width: 100%;
+    min-width: 0;
+
     display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
 
-    grid-template-columns: 1fr auto;
+    gap: 5px 10px;
 
-    gap: 8px;
+    padding: 13px;
+    margin-bottom: 9px;
 
-    padding: 14px;
-
-    margin-bottom: 10px;
-
-    background: white;
-
+    background: #ffffff;
     border: 1px solid var(--border);
-
     border-radius: 12px;
 
     box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+
+    overflow: hidden;
   }
 
-  td {
+  tbody tr:hover {
+    background: #ffffff;
+  }
+
+  tbody td {
+    min-width: 0;
     display: block;
-
     padding: 0;
-
     border: none;
-
     font-size: 13px;
   }
 
-  /*
-    Number
-  */
-
-  td:nth-child(1) {
+  /* Hide number */
+  tbody td:nth-child(1) {
     display: none;
   }
 
-  /*
-    Student name
-  */
-
-  td:nth-child(2) {
+  /* Student name */
+  tbody td:nth-child(2) {
     grid-column: 1;
-
     grid-row: 1;
 
-    text-align: right;
+    width: 100%;
 
     direction: rtl;
+    text-align: right;
 
     font-size: 14px;
-
+    line-height: 1.5;
     font-weight: 700;
 
-    align-self: center;
+    overflow-wrap: anywhere;
+    word-break: normal;
   }
 
-  /*
-    Student ID
-  */
-
-  td:nth-child(3) {
+  /* Student ID */
+  tbody td:nth-child(3) {
     grid-column: 1;
-
     grid-row: 2;
 
+    width: 100%;
+
     color: var(--muted);
+    font-size: 11px;
+    line-height: 1.4;
 
-    font-size: 12px;
+    direction: ltr;
+    text-align: left;
   }
 
-  td:nth-child(3)::before {
+  tbody td:nth-child(3)::before {
     content: "ID: ";
+    font-weight: 700;
+    color: #94a3b8;
   }
 
-  /*
-    Present button
-  */
-
-  td:nth-child(4) {
+  /* Status button */
+  tbody td:nth-child(4) {
     grid-column: 2;
-
     grid-row: 1 / span 2;
 
-    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 90px;
   }
 
   .status-btn {
-    padding: 9px 12px;
+    width: 100%;
+    max-width: 105px;
+
+    padding: 9px 10px;
 
     white-space: nowrap;
+    text-align: center;
 
-    font-size: 11px;
+    font-size: 10px;
+    line-height: 1.2;
   }
 
-  /* Bottom buttons */
+  /* =========================
+     BOTTOM ACTIONS
+  ========================= */
 
   .actions {
+    display: flex;
     flex-direction: column;
-
     gap: 9px;
+    margin-top: 16px;
   }
 
   .btn {
     width: 100%;
+    min-height: 46px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
 
-    padding: 13px;
+  /* =========================
+     FOOTER
+  ========================= */
+
+  .site-footer {
+    margin-top: 25px;
+    padding: 18px 15px;
+  }
+
+  .footer-content {
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .gmail-link {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  .gmail-link svg {
+    width: 19px;
+    height: 19px;
   }
 }
+
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media (max-width: 380px) {
+
+  .container {
+    width: calc(100% - 14px);
+  }
+
+  .card {
+    padding: 13px;
+  }
+
+  .stats {
+    gap: 5px;
+  }
+
+  .stat-card {
+    padding: 12px 4px;
+  }
+
+  .stat-card span {
+    font-size: 9px;
+  }
+
+  .stat-card strong {
+    font-size: 21px;
+  }
+
+  tbody tr {
+    grid-template-columns: minmax(0, 1fr) 88px;
+    padding: 11px;
+  }
+
+  tbody td:nth-child(2) {
+    font-size: 13px;
+  }
+
+  .status-btn {
+    max-width: 88px;
+    padding: 8px 7px;
+    font-size: 9px;
+  }
+
+  .footer-content {
+    font-size: 11px;
+  }
+}
+
 
 /* =========================
    SMALL ANIMATION
